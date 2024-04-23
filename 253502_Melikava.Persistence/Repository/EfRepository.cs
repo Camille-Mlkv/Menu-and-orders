@@ -77,7 +77,7 @@ namespace _253502_Melikava.Persistence.Repository
             {
                 query = query.Where(filter);
             }
-            return await query.ToListAsync();
+            return await query.ToListAsync(cancellationToken);
         }
 
         public Task UpdateAsync(T entity, CancellationToken cancellationToken = default)

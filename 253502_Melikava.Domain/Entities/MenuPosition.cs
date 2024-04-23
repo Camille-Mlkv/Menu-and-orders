@@ -1,4 +1,5 @@
 ﻿
+
 namespace _253502_Melikava.Domain.Entities
 {
     public class MenuPosition:Entity

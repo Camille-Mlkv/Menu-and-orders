@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="_253502_Melikava.UI.Pages.MenuPositionsPage"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:models="clr-namespace:_253502_Melikava.UI.ViewModels"
+             xmlns:valueconverter="clr-namespace:_253502_Melikava.UI.ValueConverters"
+             Title="MenuPositionsPage">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior EventName="Loaded"
+        Command="{Binding UpdateGroupListCommand }"/>
+    </ContentPage.Behaviors>
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <valueconverter:TimeToColorValueConverter x:Key="TimeToColorValueConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <ContentPage.Content>
+        <StackLayout Padding="10">
+        <Picker Title="Выберите группу"
+                    ItemsSource="{Binding MenuPositions}"
+                    ItemDisplayBinding="{Binding Name}">
+            <Picker.SelectedItem>
+                <Binding Path="SelectedMenuPosition" Mode="TwoWay"/>
+            </Picker.SelectedItem>
+            <Picker.Behaviors>
+                <toolkit:EventToCommandBehavior EventName="SelectedIndexChanged"
+                                                     Command="{Binding UpdateMembersListCommand}"/>
+            </Picker.Behaviors>
+        </Picker>
+
+            <StackLayout Padding="10" Margin="5" BackgroundColor="#EEEEEE">
+                <Label Text="Selected Menu Position Data:" FontAttributes="Bold" />
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Name: " FontAttributes="Bold"/>
+                    <Label Text="{Binding SelectedMenuPosition.Name}" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Meal type: " FontAttributes="Bold"/>
+                    <Label Text="{Binding SelectedMenuPosition.Type}" />
+                </StackLayout>
+
+                <StackLayout Orientation="Horizontal">
+                    <Label Text="Price (BYN): " FontAttributes="Bold"/>
+                    <Label Text="{Binding SelectedMenuPosition.Price}" />
+                </StackLayout>
+                
+            </StackLayout>
+
+        <CollectionView ItemsSource="{Binding Orders}" VerticalOptions="FillAndExpand">
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                        <Frame Margin="5" Padding="10" BackgroundColor="{Binding PreparationTime, Converter={StaticResource TimeToColorValueConverter}}" CornerRadius="10" HasShadow="True" BorderColor="Transparent">
+                            <StackLayout Padding="10" Margin="5" BackgroundColor="#EEEEEE">
+                                <Label Text="{Binding ClientName}" />
+                                <Label Text="{Binding PreparationTime}" />
+                            </StackLayout>
+                        </Frame>
+                    
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+            <!--x:DataType="models:MenuPositionsPageViewModel"-->
+
+
+        </StackLayout>
+    </ContentPage.Content>
+
+
+</ContentPage>

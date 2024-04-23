@@ -18,7 +18,8 @@ namespace _253502_Melikava.ApplicationLayer.OrderUseCases.Commands
 
         public async Task<IEnumerable<Order>> Handle(GetOrdersByMenuPositionRequest request, CancellationToken cancellationToken)
         {
-            return await _unitOfWork.OrderRepository.ListAsync(order => order.Id.Equals(request.Id), cancellationToken);
+            var orders = await _unitOfWork.OrderRepository.ListAsync(order => order.MenuPositionId.Equals(request.Id),cancellationToken);
+            return orders;
         }
     }
 

@@ -1,18 +1,19 @@
 ﻿
+
 namespace _253502_Melikava.Domain.Entities
 {
     public class Order:Entity
     {
-        private Order() { }
-        public Order(string clientName, double preparationTime, bool birthdayGift, string sauce)
+        public Order() { }
+        public Order(string clientName, int preparationTime, bool birthdayGift, string sauce)
         {
             ClientName = clientName;
             PreparationTime = preparationTime;
             BirthdayGift = birthdayGift;
             Sauce = sauce;
         }
-        public string? ClientName { get; private set; }
-        public double PreparationTime { get; private set; }
+        public string? ClientName { get;  set; }
+        public int PreparationTime { get; private set; }
         public bool BirthdayGift { get; private set; }
         public string? Sauce {  get; set; }
         public int? MenuPositionId { get; private set; }
@@ -28,7 +29,7 @@ namespace _253502_Melikava.Domain.Entities
             MenuPositionId = 0;
         }
 
-        public void ModifyPreparationTime(double preparationTime)
+        public void ModifyPreparationTime(int preparationTime)
         {
             if(preparationTime < 0 || preparationTime>120) return;
             PreparationTime = preparationTime;

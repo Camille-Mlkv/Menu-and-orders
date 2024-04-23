@@ -20,7 +20,9 @@ namespace _253502_Melikava.UI
 
             builder.Services
                    .AddApplication()
-                   .AddPersistence();
+                   .AddPersistence()
+                   .RegisterPages()
+                   .RegisterViewModels();
 
 
             builder.UseMauiApp<App>().UseMauiCommunityToolkit();
