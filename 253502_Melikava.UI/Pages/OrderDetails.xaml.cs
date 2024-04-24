@@ -9,4 +9,11 @@ public partial class OrderDetails : ContentPage
 		InitializeComponent();
 		BindingContext = new OrderDetailsViewModel();
 	}
+
+    protected override void OnAppearing()
+    {
+        //BindingContext = new OrderDetailsViewModel();
+        base.OnAppearing();
+		
+    }
 }

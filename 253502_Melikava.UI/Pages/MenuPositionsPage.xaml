@@ -57,6 +57,9 @@
                 <DataTemplate>
                         <Frame Margin="5" Padding="10" BackgroundColor="{Binding PreparationTime, Converter={StaticResource TimeToColorValueConverter}}" CornerRadius="10" HasShadow="True" BorderColor="Transparent">
                             <StackLayout Padding="10" Margin="5" BackgroundColor="#EEEEEE">
+                                <StackLayout.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type models:MenuPositionsPageViewModel}},Path=ShowDetailsCommand}" CommandParameter="{Binding}"/>
+                                </StackLayout.GestureRecognizers>
                                 <Label Text="{Binding ClientName}" />
                                 <Label Text="{Binding PreparationTime}" />
                             </StackLayout>

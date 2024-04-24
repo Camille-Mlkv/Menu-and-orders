@@ -9,4 +9,6 @@ public partial class MenuPositionsPage : ContentPage
 		InitializeComponent();
         BindingContext = new MenuPositionsPageViewModel(mediator);
     }
+
+
 }

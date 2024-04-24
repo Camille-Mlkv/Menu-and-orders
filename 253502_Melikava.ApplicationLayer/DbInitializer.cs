@@ -40,7 +40,7 @@ namespace _253502_Melikava.ApplicationLayer
             int k = 0;
             for (int i = 1; i <= 3; i++)
             {
-                for (int j = 0; j < 2; j++)
+                for (int j = 0; j < 7; j++)
                 {
                     k++;
                     var order = new Order($"Client {k}", Random.Shared.Next(10, 21), Random.Shared.NextDouble() > 1, $"Sauce {k}");

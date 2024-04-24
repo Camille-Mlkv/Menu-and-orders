@@ -3,10 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="_253502_Melikava.UI.Pages.OrderDetails"
              Title="OrderDetails">
-    <VerticalStackLayout>
-        <Label 
-            Text="Welcome to .NET MAUI!"
-            VerticalOptions="Center" 
-            HorizontalOptions="Center" />
-    </VerticalStackLayout>
+
+    <StackLayout>
+        <Label Text="{Binding Order.ClientName}" />
+        <Label Text="{Binding Order.PreparationTime}" />
+        <Label Text="{Binding Order.Sauce}" />
+
+    </StackLayout>
 </ContentPage>

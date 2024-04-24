@@ -4,6 +4,7 @@ using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using System.Diagnostics.Metrics;
+using _253502_Melikava.UI.Pages;
 
 namespace _253502_Melikava.UI.ViewModels
 {
@@ -17,8 +18,6 @@ namespace _253502_Melikava.UI.ViewModels
         public ObservableCollection<MenuPosition> MenuPositions { get; set; } = new();
         public ObservableCollection<Order> Orders { get; set; } = new ();
 
-        //public string ClientName { get; set; }
-
         // Выбранная позиция меню
         [ObservableProperty]
         MenuPosition selectedMenuPosition;
@@ -29,6 +28,10 @@ namespace _253502_Melikava.UI.ViewModels
         // Команда обновления списка заказов позиции меню
         [RelayCommand]
         async Task UpdateMembersList() => await GetOrders();
+
+        [RelayCommand]
+        async void ShowDetails(Order order) => await GotoDetailsPage(order);
+
 
         public async Task GetOrders()
         {
@@ -53,6 +56,15 @@ namespace _253502_Melikava.UI.ViewModels
             });
         }
 
+        private async Task GotoDetailsPage(Order Order)
+        {
+            IDictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                { "Order", Order }
+            };
+
+            await Shell.Current.GoToAsync(nameof(OrderDetails),parameters);
+        }
     }
 
 
