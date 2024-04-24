@@ -1,4 +1,5 @@
-﻿using _253502_Melikava.Persistence.Data;
+﻿using _253502_Melikava.Domain.Entities;
+using _253502_Melikava.Persistence.Data;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;

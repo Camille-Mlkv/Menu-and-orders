@@ -14,7 +14,7 @@ namespace _253502_Melikava.Persistence
     {
         public static IServiceCollection AddPersistence(this IServiceCollection services)
         {
-            services.AddSingleton<IUnitOfWork, FakeUnitOfWork>();
+            services.AddSingleton<IUnitOfWork, EfUnitOfWork>(); //EfUnitOfWork
             return services;
         }
         public static IServiceCollection AddPersistence(this IServiceCollection services,DbContextOptions options)
