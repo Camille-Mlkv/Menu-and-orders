@@ -4,7 +4,7 @@ namespace _253502_Melikava.Domain.Entities
 {
     public class MenuPosition:Entity
     {
-        private MenuPosition() { }
+        public MenuPosition() { }
         public MenuPosition(string type,string name, double price)
         {
             Type = type;

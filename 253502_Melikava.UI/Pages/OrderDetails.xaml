@@ -5,9 +5,27 @@
              Title="OrderDetails">
 
     <StackLayout>
-        <Label Text="{Binding Order.ClientName}" />
-        <Label Text="{Binding Order.PreparationTime}" />
-        <Label Text="{Binding Order.Sauce}" />
+        
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Client name: " FontAttributes="Bold"/>
+            <Label Text="{Binding Order.ClientName}" />
+        </StackLayout>
+        
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Preparation time (min): " FontAttributes="Bold"/>
+            <Label Text="{Binding Order.PreparationTime}" />
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Birthday gift: " FontAttributes="Bold"/>
+            <Label Text="{Binding Order.BirthdayGift}" />
+        </StackLayout>
+
+        <StackLayout Orientation="Horizontal">
+            <Label Text="Sauce: " FontAttributes="Bold"/>
+            <Label Text="{Binding Order.Sauce}" />
+        </StackLayout>
+
 
     </StackLayout>
 </ContentPage>

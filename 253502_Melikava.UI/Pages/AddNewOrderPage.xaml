@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="_253502_Melikava.UI.Pages.AddNewOrderPage"
+             Title="AddNewOrderPage"
+             xmlns:valueconverter="clr-namespace:_253502_Melikava.UI.ValueConverters">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <valueconverter:StringToIntConverter x:Key="StringToIntConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <VerticalStackLayout Spacing="20">
+        <Entry
+            x:Name="ClientNameEntry"
+            Placeholder = "Имя клиента" 
+            FontFamily="Helvetica"
+            FontSize="17"
+            MaxLength="25"
+            WidthRequest="250"
+            Text="{Binding NewOrder.ClientName}"/>
+        <Entry
+            Keyboard="Numeric"
+            x:Name="PreparationTimeEntry"
+            Placeholder = "Время приготовления заказа" 
+            FontFamily="Helvetica"
+            FontSize="17"
+            MaxLength="25"
+            WidthRequest="250"
+            Text="{Binding NewOrder.PreparationTime,Mode=TwoWay,Converter={StaticResource StringToIntConverter}}"/>
+        <Entry
+            x:Name="BirthdayGiftEntry"
+            Placeholder = "День рождения?" 
+            FontFamily="Helvetica"
+            FontSize="17"
+            MaxLength="25"
+            WidthRequest="250"
+            Text="{Binding NewOrder.BirthdayGift}"/>
+        <Entry
+            x:Name="SauceEntry"
+            Placeholder = "Соус" 
+            FontFamily="Helvetica"
+            FontSize="17"
+            MaxLength="25"
+            WidthRequest="250"
+            Text="{Binding NewOrder.Sauce}"/>
+        <Button Text="Save new order" Command="{Binding SaveNewOrderCommand}" CommandParameter="{Binding NewOrder}"/>
+
+    </VerticalStackLayout>
+</ContentPage>

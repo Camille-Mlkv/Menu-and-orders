@@ -8,6 +8,7 @@ namespace _253502_Melikava.UI
         {
             InitializeComponent();
             Routing.RegisterRoute(nameof(OrderDetails), typeof(OrderDetails));
+            Routing.RegisterRoute(nameof(AddNewOrderPage), typeof(AddNewOrderPage));
         }
     }
 }

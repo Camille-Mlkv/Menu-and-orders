@@ -13,10 +13,10 @@ namespace _253502_Melikava.Domain.Entities
             Sauce = sauce;
         }
         public string? ClientName { get;  set; }
-        public int PreparationTime { get; private set; }
-        public bool BirthdayGift { get; private set; }
+        public int PreparationTime { get;  set; }
+        public bool BirthdayGift { get;  set; }
         public string? Sauce {  get; set; }
-        public int? MenuPositionId { get; private set; }
+        public int? MenuPositionId { get;  set; }
 
         public void AddToMenuPosition(int menuPositionId)
         {

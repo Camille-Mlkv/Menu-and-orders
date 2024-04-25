@@ -13,14 +13,16 @@ namespace _253502_Melikava.UI
         public static IServiceCollection RegisterPages(this IServiceCollection services)
         {
             services.AddTransient<MenuPositionsPage>()
-                    .AddTransient<OrderDetails>();
+                    .AddTransient<OrderDetails>()
+                    .AddTransient<AddNewOrderPage>();
                     
             return services;
         }
         public static IServiceCollection RegisterViewModels(this IServiceCollection services)
         {
             services.AddTransient<MenuPositionsPageViewModel>()
-                    .AddTransient<OrderDetailsViewModel>();
+                    .AddTransient<OrderDetailsViewModel>()
+                    .AddTransient<AddNewOrderPageViewModel>();
             return services;
         }
 

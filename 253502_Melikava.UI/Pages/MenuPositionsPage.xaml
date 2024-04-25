@@ -18,9 +18,23 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
+
+    <!--<ContentPage.MenuBarItems>
+        <MenuBarItem Text="Позиции меню">
+            <MenuFlyoutItem Text="Добавить новую позицию"/>
+        </MenuBarItem>
+        <MenuBarItem Text="Заказы">
+            <MenuFlyoutItem 
+                Text="Добавить новый заказ"
+                Command="{Binding AddNewOrderCommand}"
+                CommandParameter="{Binding SelectedMenuPosition}"/>
+        </MenuBarItem>
+    </ContentPage.MenuBarItems>-->
+
     <ContentPage.Content>
         <StackLayout Padding="10">
-        <Picker Title="Выберите группу"
+            <Button Text="New order" Command="{Binding AddNewOrderCommand}" CommandParameter="{Binding SelectedMenuPosition}"/>
+            <Picker Title="Выберите группу"
                     ItemsSource="{Binding MenuPositions}"
                     ItemDisplayBinding="{Binding Name}">
             <Picker.SelectedItem>
@@ -28,7 +42,7 @@
             </Picker.SelectedItem>
             <Picker.Behaviors>
                 <toolkit:EventToCommandBehavior EventName="SelectedIndexChanged"
-                                                     Command="{Binding UpdateMembersListCommand}"/>
+                                                Command="{Binding UpdateMembersListCommand}"/>
             </Picker.Behaviors>
         </Picker>
 

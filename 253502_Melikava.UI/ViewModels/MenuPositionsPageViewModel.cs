@@ -32,6 +32,9 @@ namespace _253502_Melikava.UI.ViewModels
         [RelayCommand]
         async void ShowDetails(Order order) => await GotoDetailsPage(order);
 
+        [RelayCommand]
+        async void AddNewOrder(MenuPosition menuPosition) => await GoToAddNewOrderPage(menuPosition);
+
 
         public async Task GetOrders()
         {
@@ -64,6 +67,23 @@ namespace _253502_Melikava.UI.ViewModels
             };
 
             await Shell.Current.GoToAsync(nameof(OrderDetails),parameters);
+        }
+
+        private async Task GoToAddNewOrderPage(MenuPosition menuPosition)
+        {
+            IDictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                { "MenuPosition", menuPosition }
+            };
+            if(menuPosition != null)
+            {
+                await Shell.Current.GoToAsync(nameof(AddNewOrderPage), parameters);
+            }
+            else
+            {
+                await Shell.Current.DisplayAlert("Warning", "You haven't selected menu position", "OK");
+            }
+
         }
     }
 
