@@ -33,16 +33,19 @@
 
     <ContentPage.Content>
         <StackLayout Padding="10">
-            <Button Text="New order" Command="{Binding AddNewOrderCommand}" CommandParameter="{Binding SelectedMenuPosition}"/>
-            <Picker Title="Выберите группу"
+            <HorizontalStackLayout>
+                <Button Text="New order" Command="{Binding AddNewOrderCommand}" CommandParameter="{Binding SelectedMenuPosition}"/>
+                <Button Text="New menu position" Command="{Binding AddNewMenuPositionCommand}"/>
+            </HorizontalStackLayout>
+            
+        <Picker Title="Выберите группу"
                     ItemsSource="{Binding MenuPositions}"
                     ItemDisplayBinding="{Binding Name}">
             <Picker.SelectedItem>
                 <Binding Path="SelectedMenuPosition" Mode="TwoWay"/>
             </Picker.SelectedItem>
             <Picker.Behaviors>
-                <toolkit:EventToCommandBehavior EventName="SelectedIndexChanged"
-                                                Command="{Binding UpdateMembersListCommand}"/>
+                <toolkit:EventToCommandBehavior EventName="SelectedIndexChanged" Command="{Binding UpdateMembersListCommand}"/>
             </Picker.Behaviors>
         </Picker>
 

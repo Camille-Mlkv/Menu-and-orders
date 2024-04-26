@@ -4,9 +4,9 @@ namespace _253502_Melikava.UI.Pages;
 
 public partial class AddNewOrderPage : ContentPage
 {
-	public AddNewOrderPage(IMediator mediator)//IMediator mediator
+	public AddNewOrderPage(IMediator mediator)
     {
 		InitializeComponent();
-		BindingContext = new AddNewOrderPageViewModel(mediator);//mediator
+		BindingContext = new AddNewOrderPageViewModel(mediator);
     }
 }

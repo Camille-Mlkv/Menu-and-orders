@@ -35,16 +35,26 @@ namespace _253502_Melikava.UI.ViewModels
         [RelayCommand]
         async void AddNewOrder(MenuPosition menuPosition) => await GoToAddNewOrderPage(menuPosition);
 
+        [RelayCommand]
+        async void AddNewMenuPosition() => await GoToAddNewMenuPositionPage();
+
 
         public async Task GetOrders()
         {
-            var orders = await _mediator.Send(new GetOrdersByMenuPositionRequest(SelectedMenuPosition.Id)); 
-            await MainThread.InvokeOnMainThreadAsync(() =>
+            if (SelectedMenuPosition != null)
             {
-                Orders.Clear();
-                foreach (var order in orders)
-                    Orders.Add(order);
-            });
+                var orders = await _mediator.Send(new GetOrdersByMenuPositionRequest(SelectedMenuPosition.Id));
+                await MainThread.InvokeOnMainThreadAsync(() =>
+                {
+                    Orders.Clear();
+                    foreach (var order in orders)
+                        Orders.Add(order);
+                });
+            }
+            //else//here
+            //{
+            //    Orders.Clear();
+            //}
 
         }
 
@@ -84,6 +94,11 @@ namespace _253502_Melikava.UI.ViewModels
                 await Shell.Current.DisplayAlert("Warning", "You haven't selected menu position", "OK");
             }
 
+        }
+
+        private async Task GoToAddNewMenuPositionPage()
+        {
+            await Shell.Current.GoToAsync(nameof(AddNewMenuPositionPage));
         }
     }
 

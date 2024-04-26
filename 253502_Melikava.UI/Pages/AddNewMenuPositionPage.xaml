@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="_253502_Melikava.UI.Pages.AddNewMenuPositionPage"
+             xmlns:valueconverter="clr-namespace:_253502_Melikava.UI.ValueConverters"
+             Title="AddNewMenuPositionPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <valueconverter:StringToIntConverter x:Key="StringToIntConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+
+    <VerticalStackLayout Spacing="20">
+        <Entry
+            x:Name="TypeEntry"
+            Placeholder = "Тип блюда" 
+            FontFamily="Helvetica"
+            FontSize="17"
+            MaxLength="25"
+            WidthRequest="250"
+            Text="{Binding NewMenuPosition.Type}"/>
+        <Entry
+            x:Name="NameEntry"
+            Placeholder = "Наименование блюда" 
+            FontFamily="Helvetica"
+            FontSize="17"
+            MaxLength="25"
+            WidthRequest="250"
+            Text="{Binding NewMenuPosition.Name}"/>
+        <Entry
+            Keyboard="Numeric"
+            x:Name="PriceEntry"
+            Placeholder = "Стоимость блюда" 
+            FontFamily="Helvetica"
+            FontSize="17"
+            MaxLength="25"
+            WidthRequest="250"
+            Text="{Binding NewMenuPosition.Price}"/>
+        <Button Text="Save new menu position" Command="{Binding SaveNewMenuPositionCommand}" CommandParameter="{Binding NewMenuPosition}"/>
+
+    </VerticalStackLayout>
+</ContentPage>

@@ -14,7 +14,7 @@ namespace _253502_Melikava.Domain.Entities
         private List<Order> _orders=new();
         public string? Type { get; set; }
         public string? Name { get; set; }
-        public double Price { get; private set; }
+        public double Price { get;  set; }
         public IReadOnlyList<Order> Orders { get => _orders.AsReadOnly(); }
 
     }
