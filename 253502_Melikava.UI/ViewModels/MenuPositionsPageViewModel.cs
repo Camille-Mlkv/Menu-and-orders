@@ -30,7 +30,7 @@ namespace _253502_Melikava.UI.ViewModels
         async Task UpdateMembersList() => await GetOrders();
 
         [RelayCommand]
-        async void ShowDetails(Order order) => await GotoDetailsPage(order);
+        async Task ShowDetails(Order order) => await GotoDetailsPage(order);
 
         [RelayCommand]
         async void AddNewOrder(MenuPosition menuPosition) => await GoToAddNewOrderPage(menuPosition);

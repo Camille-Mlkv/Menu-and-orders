@@ -31,8 +31,5 @@ public partial class MenuPositionsPage : ContentPage
                 item => item.Id == previousSelectedItem.Id
             );
         }
-
-        
-
     }
 }

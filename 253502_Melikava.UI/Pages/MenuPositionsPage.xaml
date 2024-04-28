@@ -18,19 +18,6 @@
         </ResourceDictionary>
     </ContentPage.Resources>
 
-
-    <!--<ContentPage.MenuBarItems>
-        <MenuBarItem Text="Позиции меню">
-            <MenuFlyoutItem Text="Добавить новую позицию"/>
-        </MenuBarItem>
-        <MenuBarItem Text="Заказы">
-            <MenuFlyoutItem 
-                Text="Добавить новый заказ"
-                Command="{Binding AddNewOrderCommand}"
-                CommandParameter="{Binding SelectedMenuPosition}"/>
-        </MenuBarItem>
-    </ContentPage.MenuBarItems>-->
-
     <ContentPage.Content>
         <StackLayout Padding="10">
             <HorizontalStackLayout>

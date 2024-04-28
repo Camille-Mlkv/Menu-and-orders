@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="_253502_Melikava.UI.Pages.EditOrderPage"
+             Title="EditOrderPage">
+    <VerticalStackLayout Spacing="20">
+        <Entry
+            x:Name="ClientNameEntry"
+            Placeholder = "Имя клиента" 
+            FontFamily="Helvetica"
+            FontSize="17"
+            MaxLength="25"
+            WidthRequest="250"
+            Text="{Binding Order.ClientName}"/>
+        <Entry
+            Keyboard="Numeric"
+            x:Name="PreparationTimeEntry"
+            Placeholder = "Время приготовления заказа" 
+            FontFamily="Helvetica"
+            FontSize="17"
+            MaxLength="25"
+            WidthRequest="250"
+            Text="{Binding Order.PreparationTime}"/>
+        <Entry
+            x:Name="BirthdayGiftEntry"
+            Placeholder = "День рождения?" 
+            FontFamily="Helvetica"
+            FontSize="17"
+            MaxLength="25"
+            WidthRequest="250"
+            Text="{Binding Order.BirthdayGift}"/>
+        <Entry
+            x:Name="SauceEntry"
+            Placeholder = "Соус" 
+            FontFamily="Helvetica"
+            FontSize="17"
+            MaxLength="25"
+            WidthRequest="250"
+            Text="{Binding Order.Sauce}"/>
+        <Button Text="Edit order" Command="{Binding EditOrderCommand}" CommandParameter="{Binding Order}"/>
+
+    </VerticalStackLayout>
+</ContentPage>

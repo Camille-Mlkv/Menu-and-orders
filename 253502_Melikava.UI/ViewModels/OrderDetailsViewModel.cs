@@ -1,6 +1,8 @@
 ﻿
 
+using _253502_Melikava.UI.Pages;
 using CommunityToolkit.Mvvm.ComponentModel;
+using CommunityToolkit.Mvvm.Input;
 using System.ComponentModel;
 
 namespace _253502_Melikava.UI.ViewModels
@@ -23,6 +25,19 @@ namespace _253502_Melikava.UI.ViewModels
                 _order = value;
                 OnPropertyChanged(nameof(Order));
             }
+        }
+
+        [RelayCommand]
+        async void EditOrder(Order order) => await GoToEditOrderPage(order);
+
+        private async Task GoToEditOrderPage(Order order)
+        {
+            IDictionary<string, object> parameters = new Dictionary<string, object>()
+            {
+                { "Order", order }
+            };
+
+            await Shell.Current.GoToAsync(nameof(EditOrderPage), parameters);
         }
 
         public event PropertyChangedEventHandler PropertyChanged;

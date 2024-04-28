@@ -11,6 +11,7 @@ namespace _253502_Melikava.UI
             Routing.RegisterRoute(nameof(AddNewOrderPage), typeof(AddNewOrderPage));
             Routing.RegisterRoute(nameof(AddNewMenuPositionPage), typeof(AddNewMenuPositionPage));
             Routing.RegisterRoute(nameof(EditMenuPositionPage), typeof(EditMenuPositionPage));
+            Routing.RegisterRoute(nameof(EditOrderPage), typeof(EditOrderPage));
         }
     }
 }

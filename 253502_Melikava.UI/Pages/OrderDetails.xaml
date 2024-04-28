@@ -4,28 +4,31 @@
              x:Class="_253502_Melikava.UI.Pages.OrderDetails"
              Title="OrderDetails">
 
-    <StackLayout>
-        
-        <StackLayout Orientation="Horizontal">
-            <Label Text="Client name: " FontAttributes="Bold"/>
-            <Label Text="{Binding Order.ClientName}" />
-        </StackLayout>
-        
-        <StackLayout Orientation="Horizontal">
-            <Label Text="Preparation time (min): " FontAttributes="Bold"/>
-            <Label Text="{Binding Order.PreparationTime}" />
+    <StackLayout Padding="10" Spacing="15">
+
+        <StackLayout Orientation="Horizontal" Spacing="5" Padding="5">
+            <Label Text="Client name: " FontAttributes="Bold" FontSize="16" TextColor="DarkBlue"/>
+            <Label Text="{Binding Order.ClientName}" FontSize="16" TextColor="DarkSlateGray"/>
         </StackLayout>
 
-        <StackLayout Orientation="Horizontal">
-            <Label Text="Birthday gift: " FontAttributes="Bold"/>
-            <Label Text="{Binding Order.BirthdayGift}" />
+        <StackLayout Orientation="Horizontal" Spacing="5" Padding="5">
+            <Label Text="Preparation time (min): " FontAttributes="Bold" FontSize="16" TextColor="DarkBlue"/>
+            <Label Text="{Binding Order.PreparationTime}" FontSize="16" TextColor="DarkSlateGray"/>
         </StackLayout>
 
-        <StackLayout Orientation="Horizontal">
-            <Label Text="Sauce: " FontAttributes="Bold"/>
-            <Label Text="{Binding Order.Sauce}" />
+        <StackLayout Orientation="Horizontal" Spacing="5" Padding="5">
+            <Label Text="Birthday gift: " FontAttributes="Bold" FontSize="16" TextColor="DarkBlue"/>
+            <Label Text="{Binding Order.BirthdayGift}" FontSize="16" TextColor="DarkSlateGray"/>
         </StackLayout>
 
+        <StackLayout Orientation="Horizontal" Spacing="5" Padding="5">
+            <Label Text="Sauce: " FontAttributes="Bold" FontSize="16" TextColor="DarkBlue"/>
+            <Label Text="{Binding Order.Sauce}" FontSize="16" TextColor="DarkSlateGray"/>
+        </StackLayout>
 
+        <HorizontalStackLayout>
+            <Button Text="Edit order" Command="{Binding EditOrderCommand}" CommandParameter="{Binding Order}"/>
+            <Button Text="Move"/>
+        </HorizontalStackLayout>
     </StackLayout>
 </ContentPage>
