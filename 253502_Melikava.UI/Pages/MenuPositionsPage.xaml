@@ -35,7 +35,11 @@
         <StackLayout Padding="10">
             <HorizontalStackLayout>
                 <Button Text="New order" Command="{Binding AddNewOrderCommand}" CommandParameter="{Binding SelectedMenuPosition}"/>
-                <Button Text="New menu position" Command="{Binding AddNewMenuPositionCommand}"/>
+                <VerticalStackLayout>
+                    <Button Text="New menu position" Command="{Binding AddNewMenuPositionCommand}"/>
+                    <Button Text="Edit current menu position" Command="{Binding EditMenuPositionCommand}" CommandParameter="{Binding SelectedMenuPosition}"/>
+                </VerticalStackLayout>
+                
             </HorizontalStackLayout>
             
         <Picker Title="Выберите группу"

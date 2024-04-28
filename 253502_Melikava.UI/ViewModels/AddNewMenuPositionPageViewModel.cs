@@ -36,6 +36,7 @@ namespace _253502_Melikava.UI.ViewModels
         public async Task AddMenuPosition(MenuPosition newMenuPosition)
         {
             var addedMenuPosition =  _mediator.Send(new AddMenuPositionRequest(newMenuPosition.Type, newMenuPosition.Name,newMenuPosition.Price));
+            await Shell.Current.DisplayAlert("Notification", "Successfully added!", "OK");
             await Shell.Current.GoToAsync(state: "//MenuPositionsPage");
         }
 

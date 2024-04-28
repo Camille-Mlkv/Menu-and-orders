@@ -10,6 +10,7 @@ namespace _253502_Melikava.UI
             Routing.RegisterRoute(nameof(OrderDetails), typeof(OrderDetails));
             Routing.RegisterRoute(nameof(AddNewOrderPage), typeof(AddNewOrderPage));
             Routing.RegisterRoute(nameof(AddNewMenuPositionPage), typeof(AddNewMenuPositionPage));
+            Routing.RegisterRoute(nameof(EditMenuPositionPage), typeof(EditMenuPositionPage));
         }
     }
 }

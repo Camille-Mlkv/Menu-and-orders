@@ -81,10 +81,14 @@ namespace _253502_Melikava.Persistence.Repository
             return await query.ToListAsync(cancellationToken);
         }
 
-        public Task UpdateAsync(T entity, CancellationToken cancellationToken = default)
+        public async Task UpdateAsync(T entity, CancellationToken cancellationToken = default)
         {
+            // _context.Entry(entity).State = EntityState.Modified;
+            // return Task.CompletedTask;
+
             _context.Entry(entity).State = EntityState.Modified;
-            return Task.CompletedTask;
+            await _context.SaveChangesAsync(cancellationToken);
+
         }
     }
 }

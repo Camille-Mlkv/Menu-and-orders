@@ -15,7 +15,8 @@ namespace _253502_Melikava.UI
             services.AddTransient<MenuPositionsPage>()
                     .AddTransient<OrderDetails>()
                     .AddTransient<AddNewOrderPage>()
-                    .AddTransient<AddNewMenuPositionPage>();
+                    .AddTransient<AddNewMenuPositionPage>()
+                    .AddTransient<EditMenuPositionPage>();
                     
             return services;
         }
@@ -24,7 +25,8 @@ namespace _253502_Melikava.UI
             services.AddTransient<MenuPositionsPageViewModel>()
                     .AddTransient<OrderDetailsViewModel>()
                     .AddTransient<AddNewOrderPageViewModel>()
-                    .AddTransient<AddNewMenuPositionPageViewModel>();
+                    .AddTransient<AddNewMenuPositionPageViewModel>()
+                    .AddTransient<EditMenuPositionPageViewModel>();
             return services;
         }
 
