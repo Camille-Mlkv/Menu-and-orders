@@ -54,10 +54,6 @@ namespace _253502_Melikava.UI.ViewModels
                         Orders.Add(order);
                 });
             }
-            //else//here
-            //{
-            //    Orders.Clear();
-            //}
 
         }
 

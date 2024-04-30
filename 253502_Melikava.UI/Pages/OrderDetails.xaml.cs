@@ -4,10 +4,10 @@ namespace _253502_Melikava.UI.Pages;
 
 public partial class OrderDetails : ContentPage
 {
-	public OrderDetails()
+	public OrderDetails(IMediator mediator)
 	{
 		InitializeComponent();
-		BindingContext = new OrderDetailsViewModel();
+		BindingContext = new OrderDetailsViewModel(mediator);
 	}
 
     protected override void OnAppearing()
@@ -15,5 +15,10 @@ public partial class OrderDetails : ContentPage
         //BindingContext = new OrderDetailsViewModel();
         base.OnAppearing();
 		
+    }
+
+    private void OnMoveButtonClicked(object sender, EventArgs e)
+    {
+        GroupPicker.IsVisible = true;
     }
 }

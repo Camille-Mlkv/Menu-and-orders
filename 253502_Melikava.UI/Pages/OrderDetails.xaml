@@ -2,7 +2,13 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="_253502_Melikava.UI.Pages.OrderDetails"
+             xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
              Title="OrderDetails">
+
+    <ContentPage.Behaviors>
+        <toolkit:EventToCommandBehavior EventName="Loaded"
+                Command="{Binding UpdateGroupListCommand }"/>
+    </ContentPage.Behaviors>
 
     <StackLayout Padding="10" Spacing="15">
 
@@ -28,7 +34,19 @@
 
         <HorizontalStackLayout>
             <Button Text="Edit order" Command="{Binding EditOrderCommand}" CommandParameter="{Binding Order}"/>
-            <Button Text="Move"/>
+            <Button Text="Move to another group" Clicked="OnMoveButtonClicked"/>
         </HorizontalStackLayout>
+
+        <Picker Title="Выберите группу" x:Name="GroupPicker" IsVisible="False"
+            ItemsSource="{Binding MenuPositions}"
+            ItemDisplayBinding="{Binding Name}">
+            <Picker.SelectedItem>
+                <Binding Path="SelectedMenuPosition" Mode="TwoWay"/>
+            </Picker.SelectedItem>
+            <Picker.Behaviors>
+                <toolkit:EventToCommandBehavior EventName="SelectedIndexChanged" Command="{Binding MoveToSelectedMenuPositionCommand}"/>
+            </Picker.Behaviors>
+        </Picker>
+        
     </StackLayout>
 </ContentPage>
