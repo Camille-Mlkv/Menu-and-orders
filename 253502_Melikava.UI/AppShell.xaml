@@ -11,9 +11,17 @@
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 
-    <ShellContent
+    <ShellContent 
         Title="Menu positions list"
         ContentTemplate="{DataTemplate pages:MenuPositionsPage}"
-        Route="MenuPositionsPage" />
+        Route="MenuPositionsPage">
+        <ShellContent.FlyoutIcon>
+            <FontImageSource Glyph="&#xf30c;"
+                             FontFamily="{OnPlatform iOS=FontAwesome, Android=fontawesome-webfont.ttf#}"
+                             Size="44"
+                             Color="Black"/>
+        </ShellContent.FlyoutIcon>
 
+    </ShellContent>
+        
 </Shell>

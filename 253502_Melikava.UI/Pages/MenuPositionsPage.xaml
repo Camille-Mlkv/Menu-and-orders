@@ -15,6 +15,7 @@
     <ContentPage.Resources>
         <ResourceDictionary>
             <valueconverter:TimeToColorValueConverter x:Key="TimeToColorValueConverter"/>
+            <valueconverter:IdToImagePathConverter x:Key="IdToImageConverter"/>
         </ResourceDictionary>
     </ContentPage.Resources>
 
@@ -68,8 +69,8 @@
                                 <StackLayout.GestureRecognizers>
                                     <TapGestureRecognizer Command="{Binding Source={RelativeSource AncestorType={x:Type models:MenuPositionsPageViewModel}},Path=ShowDetailsCommand}" CommandParameter="{Binding}"/>
                                 </StackLayout.GestureRecognizers>
+                                <Image Source="{Binding Id, Converter={StaticResource IdToImageConverter}}" WidthRequest="150" HeightRequest="150" HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="0" Grid.RowSpan="2" Margin="0,0,10,0"/>
                                 <Label Text="{Binding ClientName}" />
-                                <Label Text="{Binding PreparationTime}" />
                             </StackLayout>
                         </Frame>
                     

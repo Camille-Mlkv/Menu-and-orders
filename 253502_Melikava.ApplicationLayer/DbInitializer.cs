@@ -43,7 +43,7 @@ namespace _253502_Melikava.ApplicationLayer
                 for (int j = 0; j < 7; j++)
                 {
                     k++;
-                    var order = new Order($"Client {k}", Random.Shared.Next(10, 21), Random.Shared.NextDouble() > 1, $"Sauce {k}");
+                    var order = new Order($"Client {k}", Random.Shared.Next(10, 21), Random.Shared.NextDouble() > 0.5, $"Sauce {k}");
                     order.AddToMenuPosition(i);
                     orders.Add(order);
                 }

@@ -3,6 +3,7 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="_253502_Melikava.UI.Pages.OrderDetails"
              xmlns:toolkit="http://schemas.microsoft.com/dotnet/2022/maui/toolkit"
+             xmlns:valueconverter="clr-namespace:_253502_Melikava.UI.ValueConverters"
              Title="OrderDetails">
 
     <ContentPage.Behaviors>
@@ -10,8 +11,18 @@
                 Command="{Binding UpdateGroupListCommand }"/>
     </ContentPage.Behaviors>
 
-    <StackLayout Padding="10" Spacing="15">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <valueconverter:IdToImagePathConverter x:Key="IdToImageConverter"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
+    <StackLayout Padding="10" Spacing="15">
+        
+        <StackLayout Orientation="Horizontal" Spacing="5" Padding="5">
+            <Image Source="{Binding Order.Id, Converter={StaticResource IdToImageConverter}}" WidthRequest="300" HeightRequest="300" HorizontalOptions="Start" VerticalOptions="Center" Grid.Column="0" Grid.RowSpan="2" Margin="0,0,10,0"/>
+        </StackLayout>
+        
         <StackLayout Orientation="Horizontal" Spacing="5" Padding="5">
             <Label Text="Client name: " FontAttributes="Bold" FontSize="16" TextColor="DarkBlue"/>
             <Label Text="{Binding Order.ClientName}" FontSize="16" TextColor="DarkSlateGray"/>
@@ -35,6 +46,7 @@
         <HorizontalStackLayout>
             <Button Text="Edit order" Command="{Binding EditOrderCommand}" CommandParameter="{Binding Order}"/>
             <Button Text="Move to another group" Clicked="OnMoveButtonClicked"/>
+            <Button Text="Add photo" Command="{Binding SaveImageCommand}"/>
         </HorizontalStackLayout>
 
         <Picker Title="Выберите группу" x:Name="GroupPicker" IsVisible="False"

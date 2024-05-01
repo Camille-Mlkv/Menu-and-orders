@@ -21,4 +21,5 @@ public partial class OrderDetails : ContentPage
     {
         GroupPicker.IsVisible = true;
     }
+
 }

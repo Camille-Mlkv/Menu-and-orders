@@ -1,12 +1,11 @@
-﻿
-
-using _253502_Melikava.ApplicationLayer.MenuPositionUseCases.Queries;
+﻿using _253502_Melikava.ApplicationLayer.MenuPositionUseCases.Queries;
 using _253502_Melikava.ApplicationLayer.OrderUseCases.Queries;
 using _253502_Melikava.UI.Pages;
 using CommunityToolkit.Mvvm.ComponentModel;
 using CommunityToolkit.Mvvm.Input;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
+using Windows.Security.Cryptography.Core;
 
 namespace _253502_Melikava.UI.ViewModels
 {
@@ -75,10 +74,36 @@ namespace _253502_Melikava.UI.ViewModels
             await Shell.Current.GoToAsync(nameof(EditOrderPage), parameters);
         }
 
-        //public event PropertyChangedEventHandler PropertyChanged;
-        //protected void OnPropertyChanged(string propertyName)
-        //{
-        //    PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        //}
+
+        public static string GetImagesFolderPath()
+        {
+            string appDataPath = FileSystem.AppDataDirectory;
+            string imagesFolderPath = Path.Combine(appDataPath, "Images");
+
+            if (!Directory.Exists(imagesFolderPath))
+            {
+                Directory.CreateDirectory(imagesFolderPath);
+            }
+
+            return imagesFolderPath;
+        }
+
+
+        [RelayCommand]
+        async Task SaveImage() => await SaveImageToImagesFolder();
+
+        private async Task SaveImageToImagesFolder()
+        {
+            string imagesFolderPath = GetImagesFolderPath();
+            var photo = await MediaPicker.PickPhotoAsync();
+
+            if (photo != null)
+            {
+                using var stream = await photo.OpenReadAsync();
+                string imagePath = Path.Combine(imagesFolderPath, $"{Order.Id}.png");
+                using var fileStream = new FileStream(imagePath, FileMode.Create, FileAccess.Write);
+                await stream.CopyToAsync(fileStream);
+            }
+        }
     }
 }
